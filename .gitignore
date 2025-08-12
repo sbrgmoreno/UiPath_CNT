@@ -1,0 +1,14 @@
+Logs/
+Output/
+*.user
+*.local
+.local/
+.screenshots/
+
+# IDE varios
+.vscode/
+.idea/
+
+# Sistema
+Thumbs.db
+.DS_Store
