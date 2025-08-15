@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="OfRoTRDZGEecE6zdMb023A" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="micnt.com.ec/cntapp/guia104/php/guia_cntat.php" CVScreenId="d74b8e51-a4cb-4e56-8f88-b5bcb33139ed" CvElementArea="407, 485, 292, 36" CvType="InputBox" DesignTimeRectangle="407, 538, 290, 34" ElementType="DropDown" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='SELECT' class='form-control' aaname='' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="76277d8f-301a-43cb-a6c7-82c392dd3371" ScopeSelectorArgument="&lt;html app='chrome.exe' title=':: Guía Telefónica CNT EP ::' /&gt;" SearchSteps="FuzzySelector, CV" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="d74b8e51-a4cb-4e56-8f88-b5bcb33139ed" CvTextArea="406, 464, 1029, 13" CvTextArgument="Provincia: Nombres:" CvType="Text" DesignTimeRectangle="407, 451, 1108, 20" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentname='frmguia' tag='DIV' type='' class='createdate' aaname='Nota: Seleccione un criterio de Búqueda para obtener un resultado más rápido.' matching:parentname='fuzzy' fuzzylevel:parentname='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='Nota: Seleccione un criterio de Búqueda para obtener un resultado más rápido.' /&gt;" Guid="6cff6bed-648c-4d5a-93b5-23e53777e840" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="338ca26f0c656960fc68a16ee9297db7.png" xmlns="">0nZDHTKTyvkiJ4Giy1HzJ4w</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">TypeInto</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

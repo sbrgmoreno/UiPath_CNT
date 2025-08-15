@@ -1,4 +1,14 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="ExtractPageData" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="ExtractPageData_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="ExtractPageData" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_ExcelPath" Type="InArgument(x:String)" />
+    <x:Property Name="out_DtResults" Type="OutArgument(sd:DataTable)" />
+    <x:Property Name="inout_UiBrowser" Type="InOutArgument(ui:Browser)" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>ExtractPageData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -25,6 +35,34 @@
       <x:String>System.Windows.Markup</x:String>
       <x:String>GlobalVariablesNamespace</x:String>
       <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Model</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Excel.Enums</x:String>
+      <x:String>UiPath.Shared.Activities.Utils</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files.Enums</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Files.Models</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files.Models</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Excel</x:String>
+      <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -50,13 +88,182 @@
       <AssemblyReference>System.Xml.Linq</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.MetadataLoadContext</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ExtractPageData" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ExtractPageData" sap:VirtualizedContainerService.HintSize="1269,2357" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="tableSelector" />
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="timeout" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Chrome  Guía Telefónica CNT EP" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="1022,2334" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="11e533c1-0803-4f8f-a306-afc4f24ee1cd" Timeout="[timeout]" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="988,2093" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NCheckState DisplayName="Check App State ' No hay teléfonos con…'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="954,429" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="11e533c1-0803-4f8f-a306-afc4f24ee1cd" Timeout="[timeout]" Version="V5">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,92" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,178" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Throw Exception="[New Exception(&quot;No se encontró el contenedor de resultados en la página.&quot;)]" sap:VirtualizedContainerService.HintSize="416,116" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="micnt.com.ec/cntapp/guia104/php/guia_cntat.php" CVScreenId="8d19781d-c6b7-4e02-9b0e-4c41891cad67" ContentHash="zo96o-yjF0SWFvxIzq7Wig" CvTextArea="843, 746, 234, 13" CvTextArgument=":: No hay teléfonos con estos datos ::" CvType="Text" DesignTimeRectangle="601, 742, 719, 21" ElementType="Text" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table' tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='TD' /&gt;" Guid="898a4df2-2c97-4a13-be48-ed21553d184c" InformativeScreenshot="2a9dd57d7db6cca30c8ee0499c913341.png" Reference="IoVQoQDH7kGhmwngNoa-rw/_Xi1rJbZyUOoaSu2nVcb8Q" ScopeSelectorArgument="&lt;html app='chrome.exe' title=':: Guía Telefónica CNT EP ::' /&gt;" SearchSteps="Selector, CV" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive" />
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
+            <uix:NExtractData AppendResults="False" ContinueOnError="False" DataTable="[out_DtResults]" DisplayName="Extract Table Data 'Extract Table Data'" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-0' ReferenceIdx='0' Name='Column-0'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-1' ReferenceIdx='1' Name='Column-1'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-2' ReferenceIdx='2' Name='Column-2'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-3' ReferenceIdx='3' Name='Column-3'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='fulltext' /&gt;&lt;column name='Column-1' attr='fulltext' /&gt;&lt;column name='Column-2' attr='fulltext' /&gt;&lt;column name='Column-3' attr='fulltext' /&gt;&lt;/extract-table&gt;" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="954,190" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="11e533c1-0803-4f8f-a306-afc4f24ee1cd" Version="V5">
+              <uix:NExtractData.Target>
+                <uix:TargetAnchorable BrowserURL="https://micnt.com.ec/cntapp/guia104/php/guia_cntat.php?hflagsubmit=1&amp;cmbcriterio=3&amp;cmbprov2=17&amp;txtusuarioapellido=Moreno+Pallares&amp;txtusuarionombre=Mario+Gerardo&amp;captchaSelection=520c4461436a91cfbed8666515e33bd96e43e286" ContentHash="EpK6q2hlWkOSjIFhRDYK2A" DesignTimeRectangle="601, 688, 720, 75" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table' tag='TABLE' /&gt;" Guid="28667e4f-635d-4e57-807e-0a313039a4ab" InformativeScreenshot="6b968cc9c2870b6dc8d58940c4d9b715.png" Reference="IoVQoQDH7kGhmwngNoa-rw/2GBgfM6HrEalCohcyiRIOw" ScopeSelectorArgument="&lt;html app='chrome.exe' title=':: Guía Telefónica CNT EP ::' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" />
+              </uix:NExtractData.Target>
+            </uix:NExtractData>
+            <If Condition="[out_DtResults.Rows.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="954,1412" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="536,1192" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If Condition="[Not System.IO.Directory.Exists(in_Config(&quot;OutputFolder&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="502,477" sap2010:WorkflowViewState.IdRef="If_2">
+                    <If.Then>
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,248" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InvokeCode ContinueOnError="{x:Null}" Code="System.IO.Directory.CreateDirectory(in_Config(&quot;OutputFolder&quot;).ToString)" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="416,188" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
+                          <ui:InvokeCode.Arguments>
+                            <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                          </ui:InvokeCode.Arguments>
+                        </ui:InvokeCode>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,90" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                  <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" SensitivityLabel="{x:Null}" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="502,549" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ResizeWindow="None" SensitivityOperation="None" WorkbookPath="[Path.Combine(in_Config(&quot;OutputFolder&quot;).ToString, $&quot;Resultados_{Now:yyyyMMdd_HHmm}.xlsx&quot;)]">
+                    <ueab:ExcelApplicationCard.Body>
+                      <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="468,244" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ueab:WriteRangeX Destination="[Excel.SelectedRange]" DisplayName="Write DataTable to Excel" sap:VirtualizedContainerService.HintSize="434,184" sap2010:WorkflowViewState.IdRef="WriteRangeX_1" IgnoreEmptySource="False" Source="[out_DtResults]" />
+                        </Sequence>
+                      </ActivityAction>
+                    </ueab:ExcelApplicationCard.Body>
+                  </ueab:ExcelApplicationCard>
+                  <Assign sap:VirtualizedContainerService.HintSize="502,106" sap2010:WorkflowViewState.IdRef="Assign_1">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[out_ExcelPath]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[Path.Combine(in_Config("OutputFolder").ToString, "Resultados.xlsx")]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="536,90" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 1936, 1056" BrowserType="Chrome" ContentHash="CwXHi1JvREi4hoK17CpCYg" IconBase64="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" InformativeScreenshot="5b3de8f183ec3cfe0a03f3ebb3716bff.jpg" Reference="IoVQoQDH7kGhmwngNoa-rw/PLuHYfZyMEeLDfry1F09bA" Selector="&lt;html app='chrome.exe' title=':: Guía Telefónica CNT EP ::' /&gt;" Url="https://micnt.com.ec/cntapp/guia104/php/guia_cntat.php?hflagsubmit=0&amp;cmbcriterio=3" Version="V2" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
   </Sequence>
 </Activity>

@@ -1,1 +1,35 @@
-﻿{ }
+﻿{
+	"URL": "https://micnt.com.ec/cntapp/guia104/php/guia_cntat.php?hflagsubmit=0&cmbcriterio=3",
+  "OutputFolder": "Output",
+  "SmtpServer": "smtp.gmail.com",
+  "SmtpPort": 587,
+  "SmtpUser": "mario.moreno.01.1994@gmail.com",
+  "SmtpPassword": "C@lendar01",
+  "SmtpEnableSsl": true,
+  "CaptchaTemplatesPath": "Assets/CaptchaTemplates",
+  "MaxCaptchaRetries": 3,
+  "MinPagesToExtract": 20,
+  "TimeoutMs": 6000,
+  "RegexApellido": "^[A-ZÁÉÍÓÚÑa-záéíóúñ]+$",
+  "RgexNombre":"^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ'\s-]{2,40}$",
+  "RegexProvincia": "^[A-ZÁÉÍÓÚÑ]+$",
+  "RegexEmail": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$",
+  "CaptchaKeywordMap": {
+    "casa": "casa.png",
+    "pilas": "pilas.png",
+    "dados": "dados.png",
+    "camara web": "camara web.png",
+    "insecto": "insecto.png",
+    "diskette": "diskette.png",
+    "calculadora": "calculadora.png",
+    "esfero": "esfero.png",
+    "estrella": "estrella.png",
+    "reloj": "reloj.png",
+    "mundo": "mundo.png",
+    "llave": "llave.png",
+    "corazon": "corazon.png",
+    "bandera": "bandera.png",
+    "foco": "foco.png",
+    "celular": "celular.png"
+  }
+}

@@ -1,0 +1,12 @@
+﻿{
+  "Name": "Chrome  Guía Telefónica CNT EP ",
+  "Type": "App",
+  "Id": "yP-3JchXbUulBcWAOdU5Ig",
+  "Reference": "IoVQoQDH7kGhmwngNoa-rw/yP-3JchXbUulBcWAOdU5Ig",
+  "Created": "2025-08-14T19:16:35.1617058Z",
+  "Updated": "2025-08-14T19:16:35.1617058Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.13.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

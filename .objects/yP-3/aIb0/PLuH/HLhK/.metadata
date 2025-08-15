@@ -1,0 +1,14 @@
+﻿{
+  "Name": "diskette",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "HLhKnUZ2eUuwnjZrsMoqOA",
+  "Reference": "IoVQoQDH7kGhmwngNoa-rw/HLhKnUZ2eUuwnjZrsMoqOA",
+  "ParentRef": "IoVQoQDH7kGhmwngNoa-rw/PLuHYfZyMEeLDfry1F09bA",
+  "Created": "2025-08-14T19:19:21.9993626Z",
+  "Updated": "2025-08-14T19:19:21.9993626Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.13.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

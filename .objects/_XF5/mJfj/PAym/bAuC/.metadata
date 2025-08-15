@@ -1,0 +1,14 @@
+﻿{
+  "Name": "micnt.com.eccntappgui…",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Id": "bAuChm8ZLEaGGPf6h_83LQ",
+  "Reference": "IoVQoQDH7kGhmwngNoa-rw/bAuChm8ZLEaGGPf6h_83LQ",
+  "ParentRef": "IoVQoQDH7kGhmwngNoa-rw/PAymcfkh-EyyzPkr0NJOiQ",
+  "Created": "2025-08-14T02:26:04.9934645Z",
+  "Updated": "2025-08-14T02:26:04.9934645Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.13.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}
